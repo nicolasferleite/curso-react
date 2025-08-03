@@ -10,7 +10,7 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log(username, password);
+    alert(`Email: ${username}\nSenha: ${password}`);
     setUsername("");
     setPassword(""); 
   }
@@ -20,11 +20,11 @@ const Login = () => {
       <form onSubmit={handleSubmit}>
         <h1>Acesse o sistema</h1>
         <div className='input-field'>
-          <input type="email" placeholder='Digite o seu e-mail' required onChange={(e) => setUsername(e.target.value)}/>
+          <input type="email" placeholder='Digite o seu e-mail' value={username} required onChange={(e) => setUsername(e.target.value)}/>
           <FaUser className='icon'/>
         </div>
         <div className='input-field'>
-          <input type="password" placeholder='Digite a sua senha' required onChange={(e) => setPassword(e.target.value)}/>
+          <input type="password" placeholder='Digite a sua senha' value={password} required onChange={(e) => setPassword(e.target.value)}/>
           <FaLock className='icon'/>
         </div>
 
@@ -36,7 +36,7 @@ const Login = () => {
           <a href="#">Esqueceu a senha?</a>
         </div>
 
-        <button>Entrar</button>
+        <button type='submit'>Entrar</button>
 
         <div className="signup-link">
           <p>Não tem uma conta? <a href="#">Registrar</a></p>
